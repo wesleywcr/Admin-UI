@@ -142,7 +142,8 @@ export default function Home() {
             </label>
             <FileInput.Root>
               <FileInput.Trigger />
-              <FileInput.Control />
+              <FileInput.FileList />
+              <FileInput.Control multiple />
             </FileInput.Root>
           </div>
           <div className="flex items-center  justify-end gap-2 pt-5">

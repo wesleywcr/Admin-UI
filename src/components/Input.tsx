@@ -9,7 +9,7 @@ export function Prefix(props: InputPrefixProps) {
 export function Control(props: InputControlProps) {
   return (
     <input
-      className="flex-1 border-o bg-transparent p-0 text-zinc-900 placeholder-zinc-600"
+      className="flex-1 border-o bg-transparent p-0 outline-none text-zinc-900 placeholder-zinc-600"
       {...props}
     />
   )
@@ -17,7 +17,7 @@ export function Control(props: InputControlProps) {
 export function Root(props: InputRootProps) {
   return (
     <div
-      className="flex  w-full items-center rounded-lg gap-2 border border-zinc-300 px-3 py-2 shadow-sm"
+      className="flex  w-full items-center rounded-lg gap-2 border border-zinc-300 px-3 py-2 shadow-sm focus-within:border-violet-300 focus-within:right-4 focus-within:ring-violet-100"
       {...props}
     />
   )

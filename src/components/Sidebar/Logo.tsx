@@ -204,7 +204,7 @@ export function Logo() {
         </defs>
       </svg>
 
-      <span>Untitled UI</span>
+      <span>Admin UI</span>
     </strong>
   )
 }

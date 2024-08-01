@@ -12,7 +12,7 @@ export function Trigger() {
       <div className="rounded-full border-6 border-zinc-50 bg-zinc-100 p-2 group-hover:border-violet-50 group-hover:bg-violet-100 dark:border-zinc-700 dark:bg-zinc-800 dark:group-hover:border-zinc-600 dark:group-hover:bg-zinc-700">
         <UploadCloud className="h-5 w-5 text-zinc-600 group-hover:to-violet-600 dark:text-zinc-500 dark:group-hover:text-violet-300" />
       </div>
-      <div className="flex flex-col gap-1 items-center">
+      <div className="flex flex-col items-center gap-1">
         <span className="text-sm">
           <span className="font-semibold text-violet-700 dark:text-violet-300">
             Click to upload

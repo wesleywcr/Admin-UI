@@ -10,7 +10,7 @@ export function NavItem({ title, icon: Icon }: NavItemProps) {
   return (
     <a
       href=""
-      className="group flex items-center gap-3 rounded px-3 py-2 hover:bg-violet-50 outline-none  focus-visible:ring-1 focus:ring-offset-2 focus:ring-violet-300 dark:hover:bg-zinc-800"
+      className="group flex items-center gap-3 rounded px-3 py-2 outline-none hover:bg-violet-50  focus:ring-violet-300 focus:ring-offset-2 focus-visible:ring-1 dark:hover:bg-zinc-800"
     >
       <Icon className="h-5 w-5 text-zinc-500" />
       <span className="font-medium text-zinc-700 group-hover:text-violet-500 dark:text-zinc-100 dark:group-hover:text-violet-300">

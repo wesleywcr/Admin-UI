@@ -1,11 +1,11 @@
 import { SettingsTabs } from '@/components/SettingsTabs'
 import * as Input from '@/components/Input'
 import * as FileInput from '@/components/Form/FileInput'
+import * as Select from '@/components/Form/Select'
 import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
-import { Select } from '@/components/Form/Select'
-import { SelectItem } from '@/components/Form/Select/SelectItem'
 import { Textarea } from '@/components/Form/TextArea'
 import { Button } from '@/components/Button'
+import { CountrySelect } from './CountrySelect'
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <h1 className="text-3xl font-medium text-zinc-900">Settings</h1>
       <SettingsTabs />
       <div className="mt-6 flex flex-col ">
-        <div className="flex flex-col justify-between gap-4 border-b border-zinc-200 pb-5 lg:flex-row lg:items-center dark:border-zinc-700">
+        <div className="flex flex-col justify-between gap-4 border-b border-zinc-200 pb-5 dark:border-zinc-700 lg:flex-row lg:items-center">
           <div className="space-y-1">
             <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
               Personal Info
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <form
           id="settings"
-          className="mt-6 flex flex-col w-full gap-5 divide-y divide-zinc-200 dark:divide-zinc-700"
+          className="mt-6 flex w-full flex-col gap-5 divide-y divide-zinc-200 dark:divide-zinc-700"
         >
           <div className="flex flex-col gap-3 lg:grid lg:grid-cols-form">
             <label
@@ -69,10 +69,10 @@ export default function Home() {
             >
               Email address
             </label>
-            <div className="grid gap-6 grid-cols-2">
+            <div className="grid grid-cols-2 gap-6">
               <Input.Root>
                 <Input.Prefix>
-                  <Mail className="w-6 h-5 text-zinc-500" />
+                  <Mail className="h-5 w-6 text-zinc-500" />
                 </Input.Prefix>
                 <Input.Control
                   id="email"
@@ -89,7 +89,7 @@ export default function Home() {
               className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
             >
               Your photo
-              <span className="text-sm font-normal text-zinc-500 block mt-0.5">
+              <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 This will be displayed on your profile
               </span>
             </label>
@@ -107,7 +107,7 @@ export default function Home() {
             >
               Role
             </label>
-            <div className="grid gap-6 grid-cols-2">
+            <div className="grid grid-cols-2 gap-6">
               <Input.Root>
                 <Input.Control id="role" defaultValue={'CTO'} />
               </Input.Root>
@@ -120,10 +120,7 @@ export default function Home() {
             >
               Country
             </label>
-            <Select placeholder="Select a country...">
-              <SelectItem text="Brazil" value="br" />
-              <SelectItem text="United States" value="us" />
-            </Select>
+            <CountrySelect />
           </div>
           <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
             <label
@@ -132,13 +129,20 @@ export default function Home() {
             >
               TimeZone
             </label>
-            <Select placeholder="Select a timezone...">
-              <SelectItem
-                value="utc8"
-                text="Pacific Standard Time (UTC-08:00)"
-              />
-              <SelectItem value="utc3" text="America São Paulo (UTC-03:00)" />
-            </Select>
+            <Select.Root name="timezone">
+              <Select.Trigger>
+                <Select.Value placeholder="Select your timezone..." />
+              </Select.Trigger>
+
+              <Select.Content>
+                <Select.Item value="utc-3">
+                  <Select.ItemText>
+                    Pacific Standard Time (PST)
+                    <span className="text-sm text-zinc-500">UTC 08:00</span>
+                  </Select.ItemText>
+                </Select.Item>
+              </Select.Content>
+            </Select.Root>
           </div>
           <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
             <label
@@ -146,20 +150,26 @@ export default function Home() {
               className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
             >
               Bio
-              <span className="text-sm font-normal text-zinc-500 block mt-0.5">
+              <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 Write a short introduction.
               </span>
             </label>
             <div className="space-y-3">
               <div className="flex flex-col gap-3 lg:grid lg:grid-cols-2">
-                <Select placeholder="" defaultValue="normal">
-                  <SelectItem
-                    value="normal"
-                    defaultChecked
-                    text="Normal Text"
-                  />
-                  <SelectItem value="md" text="Markdown" />
-                </Select>
+                <Select.Root defaultValue="normal">
+                  <Select.Trigger>
+                    <Select.Value />
+                  </Select.Trigger>
+
+                  <Select.Content>
+                    <Select.Item value="normal">
+                      <Select.ItemText>Normal text</Select.ItemText>
+                    </Select.Item>
+                    <Select.Item value="md">
+                      <Select.ItemText>Markdown</Select.ItemText>
+                    </Select.Item>
+                  </Select.Content>
+                </Select.Root>
 
                 <div className="flex items-center gap-1">
                   <Button type="button" variant="ghost">
@@ -194,7 +204,7 @@ export default function Home() {
               className="text-sm font-medium text-zinc-700"
             >
               Portfolio projects
-              <span className="text-sm font-normal text-zinc-500 block mt-0.5">
+              <span className="mt-0.5 block text-sm font-normal text-zinc-500">
                 Share a new snippets of your work.
               </span>
             </label>

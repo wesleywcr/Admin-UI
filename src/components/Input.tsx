@@ -1,11 +1,14 @@
 import { ComponentProps } from 'react'
 import { twMerge } from 'tailwind-merge'
+
 interface InputRootProps extends ComponentProps<'div'> {}
 interface InputPrefixProps extends ComponentProps<'div'> {}
 interface InputControlProps extends ComponentProps<'input'> {}
+
 export function Prefix(props: InputPrefixProps) {
   return <div {...props} />
 }
+
 export function Control(props: InputControlProps) {
   return (
     <input

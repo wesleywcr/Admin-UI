@@ -40,25 +40,18 @@ export default function Home() {
             >
               Name
             </label>
-            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2">
+            <div className="grid gap-6 lg:grid-cols-2">
               <Input.Root>
-                <Input.Control id="firstName" defaultValue={'wesley'} />
+                <Input.Control
+                  name="firstName"
+                  id="firstName"
+                  type="text"
+                  defaultValue="Wesley"
+                />
               </Input.Root>
               <Input.Root>
-                <Input.Control defaultValue={'CR'} />
+                <Input.Control name="lastName" type="text" defaultValue="CR" />
               </Input.Root>
-              <div className="flex flex-col gap-3 lg:block">
-                <label
-                  htmlFor="lastName"
-                  className="text-sm font-medium text-zinc-700 dark:text-zinc-300 lg:sr-only"
-                >
-                  Last name
-                </label>
-
-                <Input.Root>
-                  <Input.Control id="lastName" defaultValue="Fernandes" />
-                </Input.Root>
-              </div>
             </div>
           </div>
 
